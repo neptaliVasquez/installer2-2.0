@@ -304,36 +304,43 @@
         <p>
             FDSA Open Source/3rd Party Components <br>
             This FDSA project incorporates the following 3rd party components from the projects listed below. <br>
-            <ul>
-                <li>Docker: 
-                    <a href="https://www.docker.com/legal/docker-software-end-user-license-agreement" target="_blank">https://www.docker.com/legal/docker-software-end-user-license-agreement</a>
-                </li>
-                <li> nginx: 
-                    <a href="http://nginx.org/LICENSE" target="_blank">http://nginx.org/LICENSE</a>
-                </li>
-                <li>Python: 
-                    <a href="https://docs.python.org/3.9/license.html#psf-license-agreement-for-python-release" target="_blank">https://docs.python.org/3.9/license.html#psf-license-agreement-for-python-release</a>
-                </li>
-                <li>PostgreSQL: 
-                    <a href="https://www.postgresql.org/about/licence/" target="_blank">https://www.postgresql.org/about/licence/</a>
-                </li>
-                <li>Flask: 
-                    <a href="https://flask.palletsprojects.com/en/2.0.x/license/" target="_blank">https://flask.palletsprojects.com/en/2.0.x/license/</a>
-                </li>
-                <li>Docker Compose "Cloud Integrations": 
-                    <a href="https://github.com/docker/compose-cli" target="_blank">https://github.com/docker/compose-cli</a>
-                </li>
-                <li>Hasura GraphQL Engine: 
-                    <a href="https://github.com/hasura/graphql-engine/blob/master/LICENSE" target="_blank">https://github.com/hasura/graphql-engine/blob/master/LICENSE</a>
-                </li>
-                <li>
-                   <a href=" Keycloak: https://github.com/keycloak/keycloak/blob/main/LICENSE.txt" target="_blank"> Keycloak: https://github.com/keycloak/keycloak/blob/main/LICENSE.txt</a>
-                </li>
-            </ul>
         </p>
+        <ul>
+            <li>Docker: 
+                <a href="https://www.docker.com/legal/docker-software-end-user-license-agreement" target="_blank">https://www.docker.com/legal/docker-software-end-user-license-agreement</a>
+            </li>
+            <li> nginx: 
+                <a href="http://nginx.org/LICENSE" target="_blank">http://nginx.org/LICENSE</a>
+            </li>
+            <li>Python: 
+                <a href="https://docs.python.org/3.9/license.html#psf-license-agreement-for-python-release" target="_blank">https://docs.python.org/3.9/license.html#psf-license-agreement-for-python-release</a>
+            </li>
+            <li>PostgreSQL: 
+                <a href="https://www.postgresql.org/about/licence/" target="_blank">https://www.postgresql.org/about/licence/</a>
+            </li>
+            <li>Flask: 
+                <a href="https://flask.palletsprojects.com/en/2.0.x/license/" target="_blank">https://flask.palletsprojects.com/en/2.0.x/license/</a>
+            </li>
+            <li>Docker Compose "Cloud Integrations": 
+                <a href="https://github.com/docker/compose-cli" target="_blank">https://github.com/docker/compose-cli</a>
+            </li>
+            <li>Hasura GraphQL Engine: 
+                <a href="https://github.com/hasura/graphql-engine/blob/master/LICENSE" target="_blank">https://github.com/hasura/graphql-engine/blob/master/LICENSE</a>
+            </li>
+            <li>
+                <a href=" Keycloak: https://github.com/keycloak/keycloak/blob/main/LICENSE.txt" target="_blank"> Keycloak: https://github.com/keycloak/keycloak/blob/main/LICENSE.txt</a>
+            </li>
+        </ul>
     </div>
+    <p>
+      By selecting 'Accept' (Indicating acceptance) or 'Decline' (Indicating non-acceptance) or by downloading or using the software, customer acknowledges that customer has read and understood all the terms of this agreement and that customer consents to be bound by, and to become a party to, this agreement.  
+    </p>
+    <p class="buttons">
+      <button @click="$emit('accept')">Accept</button>
+      <button @click="$emit('decline')">Decline</button>
+    </p>
 </template>
-<style>
+<style scoped>
 .card-text {
   font-size: 16px;
   line-height: 1.5;
@@ -347,5 +354,30 @@
 }
 .subtext {
   margin-left: 20px;
+}
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.buttons button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+}
+.buttons button:first-child {
+  background-color: #007bff;
+}
+.buttons button:last-child {
+  background-color: #dc3545;
+}
+
+.buttons button:first-child:hover {
+  background-color: #0056b3;
+}
+.buttons button:last-child:hover {
+  background-color: #c82333;
 }
 </style>
