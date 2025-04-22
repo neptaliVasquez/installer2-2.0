@@ -1,47 +1,43 @@
 <script setup>
 import { ref } from 'vue';
 const externalDb = ref('no');
+
+const emit = defineEmits(['nextPage']);
+
 </script>
 <template>
     <div class="content">
         <h3>External Database</h3>
         <div class="db-question">
             <label>Do you want to use an external PostgreSQL database?</label>
-            <div>
-                <input type="radio" id="yes" value="yes" v-model="externalDb" />
-                <label for="yes">Yes</label>
-                <input type="radio" id="no" value="no" v-model="externalDb" />
-                <label for="no">No</label>
+            <div class="radio-group">
+                <div>
+                    <input type="radio" id="yes" value="yes" v-model="externalDb" />
+                    <label for="yes">Yes</label>
+                </div>
+                <div>
+                    <input type="radio" id="no" value="no" v-model="externalDb" />
+                    <label for="no">No</label>
+                </div>
             </div>
         </div>
 
         <div class="db-connection" v-if="externalDb === 'yes'">
             <form action="">
-                <div class="row">
-                    <div class="col">
-                        <label for="db-host">Database Host</label>
-                        <input type="text" id="db-host" name="db-host" required />
-                    </div>
-                    <div class="col">
-                        <label for="db-port">Database Name</label>
-                        <input type="text" id="db-name" name="db-port" required />
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <label for="db-user">Database User</label>
-                        <input type="text" id="db-user" name="db-user" required />
-                    </div>
-                    <div class="col">
-                        <label for="db-password">Database Password</label>
-                        <input type="password" id="db-password" name="db-password" required />
-                    </div>
-                </div>
+                <label for="db-host">Database Host</label>
+                <input type="text" id="db-host" name="db-host" required />
+                <label for="db-port">Database Name</label>
+                <input type="text" id="db-name" name="db-port" required />
+                <label for="db-user">Database User</label>
+                <input type="text" id="db-user" name="db-user" required />
+                <label for="db-password">Database Password</label>
+                <input type="password" id="db-password" name="db-password" required />
+
             </form>
         </div>
     </div>
     <div class="buttons">
-        <button>Next</button>
+        <button @click="emit('nextPage')">Next</button>
     </div>
 </template>
 <style scoped>
@@ -49,6 +45,7 @@ const externalDb = ref('no');
     height: 700px;
     padding: 10px 20px;
 }
+
 .db-connection {
     margin-top: 80px;
     padding: 0 50px;
@@ -70,7 +67,7 @@ const externalDb = ref('no');
 .content input[type="password"] {
     width: 100%;
     padding: 8px;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
     border-radius: 4px;
     border: 1px solid #ccc;
 }
@@ -92,9 +89,9 @@ const externalDb = ref('no');
 
 .content form input[type="text"],
 .content form input[type="password"] {
-    width: calc(100% - 16px);
+    width: calc(100% - 50px);
     padding: 8px;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
     border-radius: 4px;
     border: 1px solid #ccc;
 }
@@ -105,16 +102,19 @@ span {
     text-align: left;
     font-size: 18px;
 }
+
 .db-question {
     display: flex;
     gap: 50px;
     margin-bottom: 20px;
 }
+
 .buttons {
     display: flex;
     justify-content: flex-end;
     margin-top: 20px;
 }
+
 .buttons button {
     padding: 10px 20px;
     background-color: #007bff;
@@ -123,16 +123,23 @@ span {
     border-radius: 4px;
     cursor: pointer;
 }
+
 .buttons button:hover {
     background-color: #0056b3;
 }
+
 .row {
     display: flex;
     gap: 10px;
     margin-bottom: 10px;
 }
+
 .col {
     flex: 1;
     margin-right: 10px;
+}
+.radio-group {
+    display: flex;
+    gap: 20px;
 }
 </style>

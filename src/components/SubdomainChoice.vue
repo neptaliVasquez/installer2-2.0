@@ -1,4 +1,7 @@
-<script setup></script>
+<script setup>
+import { ref } from 'vue';
+const subdomainChoice = ref('no');
+</script>
 <template>
     <div class="content">
         <h3>Subdomain Choice</h3>
@@ -11,7 +14,7 @@
                 <label for="no">No</label>
             </div>
         </div>
-        <p><strong>Note: </strong>: If you choose 'Yes', your FDSA url will have this subdomain added to your FQDN, for example: https://your-fdsa.com/subdomain-selected</p>
+        <p class="note"><strong>Note: </strong>: If you choose 'Yes', your FDSA url will have this subdomain added to your FQDN, for example: https://your-fdsa.com/subdomain-selected</p>
         <div class="subdomain-connection" v-if="subdomainChoice === 'yes'">
             <form action="">
                 <div class="row">
@@ -93,5 +96,10 @@
 }
 .buttons button:active {
     background-color: #0056b3;
+}
+.note{
+    margin-left: 50px;
+    font-size: 14px;
+    margin-top: 30px;
 }
 </style>

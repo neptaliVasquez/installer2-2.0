@@ -1,3 +1,12 @@
+<script setup>
+const emit = defineEmits(['accept', 'decline']);
+
+const handleAccept = () => {
+    emit('accept');
+};
+
+</script>
+
 <template>
     <div class="card-text">
         <h3>License Agreement</h3>
@@ -336,7 +345,7 @@
       By selecting 'Accept' (Indicating acceptance) or 'Decline' (Indicating non-acceptance) or by downloading or using the software, customer acknowledges that customer has read and understood all the terms of this agreement and that customer consents to be bound by, and to become a party to, this agreement.  
     </p>
     <p class="buttons">
-      <button @click="$emit('accept')">Accept</button>
+      <button @click="handleAccept">Accept</button>
       <button @click="$emit('decline')">Decline</button>
     </p>
 </template>
